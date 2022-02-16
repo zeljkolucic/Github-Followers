@@ -38,7 +38,7 @@ class FollowersViewController: UIViewController {
         
         NetworkManager.shared.getFollowers(for: username, page: 1) { followers, error in
             guard let followers = followers else {
-                self.presentGFAlertOnMainThread(title: "Error", message: error!, buttonTitle: "Ok")
+                self.presentGFAlertOnMainThread(title: "Error", message: error!.rawValue, buttonTitle: "Ok")
                 return
             }
 
