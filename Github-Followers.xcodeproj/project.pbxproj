@@ -14,6 +14,8 @@
 		E4F3895F27BCE35C00B2ECEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4F3895D27BCE35C00B2ECEF /* LaunchScreen.storyboard */; };
 		E4F3896A27BCE47900B2ECEF /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F3896927BCE47900B2ECEF /* FavoritesViewController.swift */; };
 		E4F3896C27BCE5DA00B2ECEF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F3896B27BCE5DA00B2ECEF /* SearchViewController.swift */; };
+		E4F3896E27BCEEF600B2ECEF /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F3896D27BCEEF600B2ECEF /* GFButton.swift */; };
+		E4F3897027BCF2C000B2ECEF /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F3896F27BCF2C000B2ECEF /* GFTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		E4F3896027BCE35C00B2ECEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4F3896927BCE47900B2ECEF /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		E4F3896B27BCE5DA00B2ECEF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		E4F3896D27BCEEF600B2ECEF /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
+		E4F3896F27BCF2C000B2ECEF /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 		E4F3896727BCE44200B2ECEF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E4F3896D27BCEEF600B2ECEF /* GFButton.swift */,
+				E4F3896F27BCF2C000B2ECEF /* GFTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -166,9 +172,11 @@
 			files = (
 				E4F3896C27BCE5DA00B2ECEF /* SearchViewController.swift in Sources */,
 				E4F3895727BCE35B00B2ECEF /* ViewController.swift in Sources */,
+				E4F3896E27BCEEF600B2ECEF /* GFButton.swift in Sources */,
 				E4F3895327BCE35B00B2ECEF /* AppDelegate.swift in Sources */,
 				E4F3896A27BCE47900B2ECEF /* FavoritesViewController.swift in Sources */,
 				E4F3895527BCE35B00B2ECEF /* SceneDelegate.swift in Sources */,
+				E4F3897027BCF2C000B2ECEF /* GFTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
