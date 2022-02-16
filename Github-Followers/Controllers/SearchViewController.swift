@@ -44,13 +44,13 @@ class SearchViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.isNavigationBarHidden = true
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        navigationController?.isNavigationBarHidden = false
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     private func createDismissKeyboardTapGesture() {
@@ -72,8 +72,7 @@ class SearchViewController: UIViewController {
             return
         }
         
-        let followersViewController = FollowersViewController()
-        followersViewController.title = usernameTextField.text
+        let followersViewController = FollowersViewController(username: usernameTextField.text)
         navigationController?.pushViewController(followersViewController, animated: true)
     }
     
