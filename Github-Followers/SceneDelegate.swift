@@ -29,14 +29,34 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     fileprivate func createTabBarController() -> UITabBarController {
         let tabBarController = UITabBarController()
-        
         UITabBar.appearance().tintColor = .systemGreen
+        
+        configureTabBarAppearance()
+        configureNavigationBarAppearance()
         
         let searchNavigationController = createSearchNavigationController()
         let favoritesNavigationController = createFavoritesNavigationController()
         tabBarController.viewControllers = [searchNavigationController, favoritesNavigationController]
         
         return tabBarController
+    }
+    
+    fileprivate func configureTabBarAppearance() {
+        if #available(iOS 15, *) {
+            let appearance = UITabBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            UITabBar.appearance().standardAppearance = appearance
+            UITabBar.appearance().scrollEdgeAppearance = appearance
+        }
+    }
+    
+    fileprivate func configureNavigationBarAppearance() {
+        if #available(iOS 15, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            UINavigationBar.appearance().standardAppearance = appearance
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        }
     }
     
     fileprivate func createSearchNavigationController() -> UINavigationController {
