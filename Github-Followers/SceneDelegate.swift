@@ -16,7 +16,45 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+        let tabBarController = createTabBarController()
+        
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
+    }
+    
+    fileprivate func createTabBarController() -> UITabBarController {
+        let tabBarController = UITabBarController()
+        
+        UITabBar.appearance().tintColor = .systemGreen
+        
+        let searchNavigationController = createSearchNavigationController()
+        let favoritesNavigationController = createFavoritesNavigationController()
+        tabBarController.viewControllers = [searchNavigationController, favoritesNavigationController]
+        
+        return tabBarController
+    }
+    
+    fileprivate func createSearchNavigationController() -> UINavigationController {
+        let searchViewController = SearchViewController()
+        searchViewController.title = "Search"
+        searchViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
+        let searchNavigationController = UINavigationController(rootViewController: searchViewController)
+        
+        return searchNavigationController
+    }
+    
+    fileprivate func createFavoritesNavigationController() -> UINavigationController {
+        let favoritesViewController = FavoritesViewController()
+        favoritesViewController.title = "Favorites"
+        favoritesViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+        let favoritesNavigationController = UINavigationController(rootViewController: favoritesViewController)
+        
+        return favoritesNavigationController
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
