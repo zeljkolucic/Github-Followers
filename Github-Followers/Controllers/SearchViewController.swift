@@ -25,12 +25,20 @@ class SearchViewController: UIViewController {
         let button = GFButton(backgroundColor: .systemGreen, title: "Get Followers")
         return button
     }()
+    
+    private var isUsernameEntered: Bool {
+        return !usernameTextField.text!.isEmpty
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupLayout()
         setConstraints()
+        
+        createDismissKeyboardTapGesture()
+        configureTextFieldDelegate()
+        configureButtonAction()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,6 +51,30 @@ class SearchViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         navigationController?.isNavigationBarHidden = false
+    }
+    
+    private func createDismissKeyboardTapGesture() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        view.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    private func configureTextFieldDelegate() {
+        usernameTextField.delegate = self
+    }
+    
+    private func configureButtonAction() {
+        getFollowersButton.addTarget(self, action: #selector(didTapGetFollowersButton), for: .touchUpInside)
+    }
+    
+    @objc private func didTapGetFollowersButton() {
+        guard isUsernameEntered else {
+            presentGFAlertOnMainThread(title: "Empty Username", message: "Please enter a username. We need to know who to look for.", buttonTitle: "Ok")
+            return
+        }
+        
+        let followersViewController = FollowersViewController()
+        followersViewController.title = usernameTextField.text
+        navigationController?.pushViewController(followersViewController, animated: true)
     }
     
     private func setupLayout() {
@@ -70,4 +102,13 @@ class SearchViewController: UIViewController {
         getFollowersButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
 
+}
+
+extension SearchViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        didTapGetFollowersButton()
+        return true
+    }
+    
 }

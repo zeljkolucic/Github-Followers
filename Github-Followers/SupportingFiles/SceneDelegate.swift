@@ -51,6 +51,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     fileprivate func configureNavigationBarAppearance() {
+        UINavigationBar.appearance().tintColor = .systemGreen
+        
         if #available(iOS 15, *) {
             let appearance = UINavigationBarAppearance()
             appearance.configureWithOpaqueBackground()
