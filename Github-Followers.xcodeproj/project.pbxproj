@@ -23,7 +23,7 @@
 		E4F3897E27BD7AA700B2ECEF /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F3897D27BD7AA700B2ECEF /* Follower.swift */; };
 		E4F3898027BD7B6800B2ECEF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F3897F27BD7B6800B2ECEF /* User.swift */; };
 		E4F3898327BD7EEE00B2ECEF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F3898227BD7EEE00B2ECEF /* NetworkManager.swift */; };
-		E4F3898627BD896F00B2ECEF /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F3898527BD896F00B2ECEF /* ErrorMessage.swift */; };
+		E4F3898627BD896F00B2ECEF /* GFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F3898527BD896F00B2ECEF /* GFError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +45,7 @@
 		E4F3897D27BD7AA700B2ECEF /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		E4F3897F27BD7B6800B2ECEF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E4F3898227BD7EEE00B2ECEF /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		E4F3898527BD896F00B2ECEF /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		E4F3898527BD896F00B2ECEF /* GFError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,7 +151,7 @@
 		E4F3898427BD895500B2ECEF /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				E4F3898527BD896F00B2ECEF /* ErrorMessage.swift */,
+				E4F3898527BD896F00B2ECEF /* GFError.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -233,7 +233,7 @@
 				E4F3895327BCE35B00B2ECEF /* AppDelegate.swift in Sources */,
 				E4F3897227BD57DF00B2ECEF /* FollowersViewController.swift in Sources */,
 				E4F3897927BD5E5F00B2ECEF /* GFAlertViewController.swift in Sources */,
-				E4F3898627BD896F00B2ECEF /* ErrorMessage.swift in Sources */,
+				E4F3898627BD896F00B2ECEF /* GFError.swift in Sources */,
 				E4F3896A27BCE47900B2ECEF /* FavoritesViewController.swift in Sources */,
 				E4F3897E27BD7AA700B2ECEF /* Follower.swift in Sources */,
 				E4F3897527BD5C4C00B2ECEF /* GFTitleLabel.swift in Sources */,
