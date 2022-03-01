@@ -106,19 +106,22 @@ class FollowersViewController: UIViewController {
     
     private func getFollowers(page: Int) {
         guard let username = username else {
-            presentGFAlertOnMainThread(title: "Error", message: "Username is empty.", buttonTitle: "Ok")
+            presentAlertOnMainThread(title: "Error", message: "Username is empty.", buttonTitle: "Ok")
             return
         }
         
+        showLoadingView()
         NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
             guard let self = self else { return }
+            self.dismissLoadingView()
+            
             switch result {
             case .success(let followers):
                 if followers.count < 100 { self.hasMoreFollowers = false}
                 self.followers.append(contentsOf: followers)
                 self.reloadData()
             case .failure(let error):
-                self.presentGFAlertOnMainThread(title: "Error", message: error.rawValue, buttonTitle: "Ok")
+                self.presentAlertOnMainThread(title: "Error", message: error.rawValue, buttonTitle: "Ok")
             }
         }
     }
