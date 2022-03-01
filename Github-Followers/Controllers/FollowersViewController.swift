@@ -9,7 +9,7 @@ import UIKit
 
 class FollowersViewController: UIViewController {
     
-    enum Section { // enum is hashable by default
+    enum Section {
         case main
     }
     
@@ -37,7 +37,6 @@ class FollowersViewController: UIViewController {
         configureViewController()
         configureCollectionView()
         setupLayout()
-        setConstraints()
         
         configureDataSource()
         getFollowers()
@@ -48,14 +47,11 @@ class FollowersViewController: UIViewController {
     private func configureViewController() {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = username
     }
     
     private func setupLayout() {
         view.addSubview(collectionView)
-    }
-    
-    private func setConstraints() {
-        
     }
     
     // MARK: Collection View Configuration
@@ -68,8 +64,8 @@ class FollowersViewController: UIViewController {
     
     private func createThreeColumnsFlowLayout() -> UICollectionViewFlowLayout {
         let width = view.bounds.width
-        let padding: CGFloat = 12 // padding of the whole collection view
-        let minimumItemSpacing: CGFloat = 10 // spacing between cells
+        let padding: CGFloat = 12
+        let minimumItemSpacing: CGFloat = 10
         let availableWidth = width - (padding * 2) - (minimumItemSpacing * 2)
         let itemWidth = availableWidth / 3
         
@@ -87,6 +83,11 @@ class FollowersViewController: UIViewController {
             }
             
             cell.usernameLabel.text = follower.login
+            NetworkManager.shared.downloadImage(from: follower.avatarUrl) { image in
+                DispatchQueue.main.async {
+                    cell.avatarImageView.image = image
+                }
+            }
             return cell
         })
     }
@@ -95,7 +96,7 @@ class FollowersViewController: UIViewController {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
         snapshot.appendSections([.main])
         snapshot.appendItems(followers, toSection: .main)
-        dataSource.apply(snapshot, animatingDifferences: true) // no need to call it from the main thread
+        dataSource.apply(snapshot, animatingDifferences: true)
     }
     
     // MARK: Network

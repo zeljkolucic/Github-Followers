@@ -5,7 +5,7 @@
 //  Created by Zeljko Lucic on 16.2.22..
 //
 
-import Foundation
+import UIKit
 
 class NetworkManager {
     
@@ -16,8 +16,9 @@ class NetworkManager {
         return instance
     }()
     
-    let baseURL = "https://api.github.com"
-    let perPage = 100
+    private let baseURL = "https://api.github.com"
+    private let perPage = 100
+    private let cache = NSCache<NSString, UIImage>()
     
     private init() {}
     
@@ -56,6 +57,31 @@ class NetworkManager {
                 completionHandler(.failure(.invalidData))
             }
 
+        }
+        
+        task.resume()
+    }
+    
+    func downloadImage(from urlString: String, completionHandler: @escaping (UIImage) -> ()) {
+        let cacheKey = NSString(string: urlString)
+        
+        if let image = cache.object(forKey: cacheKey) {
+            completionHandler(image)
+            return
+        }
+        
+        guard let url = URL(string: urlString) else { return }
+        
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            guard let self = self else { return }
+            guard error == nil else { return }
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else { return }
+            guard let data = data else { return }
+            
+            guard let image = UIImage(data: data) else { return }
+            self.cache.setObject(image, forKey: cacheKey)
+            
+            completionHandler(image)
         }
         
         task.resume()
