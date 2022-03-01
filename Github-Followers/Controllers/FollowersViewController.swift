@@ -119,6 +119,11 @@ class FollowersViewController: UIViewController {
             case .success(let followers):
                 if followers.count < 100 { self.hasMoreFollowers = false}
                 self.followers.append(contentsOf: followers)
+                
+                if self.followers.isEmpty {
+                    let meessage = "this user doesn't have any followers. Go follow them!"
+                    self.showEmptyStateView(with: meessage, view: self.view)
+                }
                 self.reloadData()
             case .failure(let error):
                 self.presentAlertOnMainThread(title: "Error", message: error.rawValue, buttonTitle: "Ok")

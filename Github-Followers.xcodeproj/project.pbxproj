@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E458D93D27CED6CF00463B58 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458D93C27CED6CF00463B58 /* EmptyStateView.swift */; };
 		E4F3895327BCE35B00B2ECEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F3895227BCE35B00B2ECEF /* AppDelegate.swift */; };
 		E4F3895527BCE35B00B2ECEF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F3895427BCE35B00B2ECEF /* SceneDelegate.swift */; };
 		E4F3895C27BCE35C00B2ECEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4F3895B27BCE35C00B2ECEF /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E458D93C27CED6CF00463B58 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		E4F3894F27BCE35B00B2ECEF /* Github-Followers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github-Followers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4F3895227BCE35B00B2ECEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4F3895427BCE35B00B2ECEF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E458D93B27CED66E00463B58 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E458D93C27CED6CF00463B58 /* EmptyStateView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		E4F3894627BCE35B00B2ECEF = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +116,7 @@
 		E4F3896727BCE44200B2ECEF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E458D93B27CED66E00463B58 /* Views */,
 				E4F3899027BEACD900B2ECEF /* ImageViews */,
 				E4F3898F27BEACBE00B2ECEF /* Cells */,
 				E4F3898E27BEACB300B2ECEF /* ViewControllers */,
@@ -280,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E458D93D27CED6CF00463B58 /* EmptyStateView.swift in Sources */,
 				E4F3898027BD7B6800B2ECEF /* User.swift in Sources */,
 				E4F3896C27BCE5DA00B2ECEF /* SearchViewController.swift in Sources */,
 				E4F3897B27BD63B700B2ECEF /* UIViewController+.swift in Sources */,
