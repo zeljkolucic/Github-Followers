@@ -37,8 +37,8 @@ extension UIViewController {
         
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         
-        activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+        activityIndicator.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
         
         activityIndicator.startAnimating()
     }

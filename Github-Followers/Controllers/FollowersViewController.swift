@@ -121,7 +121,7 @@ class FollowersViewController: UIViewController {
                 self.followers.append(contentsOf: followers)
                 
                 if self.followers.isEmpty {
-                    let meessage = "this user doesn't have any followers. Go follow them!"
+                    let meessage = "This user doesn't have any followers. Go follow them!"
                     self.showEmptyStateView(with: meessage, view: self.view)
                 }
                 self.reloadData()

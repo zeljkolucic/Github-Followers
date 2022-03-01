@@ -57,8 +57,8 @@ class EmptyStateView: UIView {
         
         logoImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 1.3).isActive = true
         logoImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.3).isActive = true
-        logoImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 170).isActive = true
-        logoImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 40).isActive = true
+        logoImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 40).isActive = true
+        logoImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 170).isActive = true
     }
     
 }
