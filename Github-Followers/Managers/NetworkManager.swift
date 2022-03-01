@@ -9,6 +9,8 @@ import Foundation
 
 class NetworkManager {
     
+    // MARK: Singleton Instance
+    
     static let shared: NetworkManager = {
         let instance = NetworkManager()
         return instance
@@ -19,7 +21,9 @@ class NetworkManager {
     
     private init() {}
     
-    func getFollowers(for username: String, page: Int, completionHandler: @escaping (Result<[Follower], GFError>) -> Void) {
+    // MARK: Network Calls
+    
+    func getFollowers(for username: String, page: Int, completionHandler: @escaping (Result<[Follower], NetworkError>) -> Void) {
         let endpoint = "\(baseURL)/users/\(username)/followers?per_page=\(perPage)&page=\(page)"
         
         guard let url = URL(string: endpoint) else {

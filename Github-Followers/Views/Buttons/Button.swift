@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GFButton: UIButton {
+class Button: UIButton {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,6 +25,8 @@ class GFButton: UIButton {
         self.setTitle(title, for: .normal)
         configure()
     }
+    
+    // MARK: Configuration
     
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false

@@ -16,13 +16,13 @@ class SearchViewController: UIViewController {
         return imageView
     }()
     
-    private let usernameTextField: GFTextField = {
-        let textField = GFTextField()
+    private let usernameTextField: TextField = {
+        let textField = TextField()
         return textField
     }()
     
-    private let getFollowersButton: GFButton = {
-        let button = GFButton(backgroundColor: .systemGreen, title: "Get Followers")
+    private let getFollowersButton: Button = {
+        let button = Button(backgroundColor: .systemGreen, title: "Get Followers")
         return button
     }()
     
@@ -30,9 +30,12 @@ class SearchViewController: UIViewController {
         return !usernameTextField.text!.isEmpty
     }
 
+    // MARK: View Controller Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configureViewController()
         setupLayout()
         setConstraints()
         
@@ -53,32 +56,13 @@ class SearchViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
-    private func createDismissKeyboardTapGesture() {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
-        view.addGestureRecognizer(tapGestureRecognizer)
-    }
+    // MARK: Layout
     
-    private func configureTextFieldDelegate() {
-        usernameTextField.delegate = self
-    }
-    
-    private func configureButtonAction() {
-        getFollowersButton.addTarget(self, action: #selector(didTapGetFollowersButton), for: .touchUpInside)
-    }
-    
-    @objc private func didTapGetFollowersButton() {
-        guard isUsernameEntered else {
-            presentGFAlertOnMainThread(title: "Empty Username", message: "Please enter a username. We need to know who to look for.", buttonTitle: "Ok")
-            return
-        }
-        
-        let followersViewController = FollowersViewController(username: usernameTextField.text)
-        navigationController?.pushViewController(followersViewController, animated: true)
+    private func configureViewController() {
+        view.backgroundColor = .systemBackground
     }
     
     private func setupLayout() {
-        view.backgroundColor = .systemBackground
-        
         view.addSubview(logoImageView)
         view.addSubview(usernameTextField)
         view.addSubview(getFollowersButton)
@@ -100,8 +84,37 @@ class SearchViewController: UIViewController {
         getFollowersButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50).isActive = true
         getFollowersButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
+    
+    // MARK: Configuration
+    
+    private func createDismissKeyboardTapGesture() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        view.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    private func configureTextFieldDelegate() {
+        usernameTextField.delegate = self
+    }
+    
+    private func configureButtonAction() {
+        getFollowersButton.addTarget(self, action: #selector(didTapGetFollowersButton), for: .touchUpInside)
+    }
+    
+    // MARK: Actions
+    
+    @objc private func didTapGetFollowersButton() {
+        guard isUsernameEntered else {
+            presentGFAlertOnMainThread(title: "Empty Username", message: "Please enter a username. We need to know who to look for.", buttonTitle: "Ok")
+            return
+        }
+        
+        let followersViewController = FollowersViewController(username: usernameTextField.text)
+        navigationController?.pushViewController(followersViewController, animated: true)
+    }
 
 }
+
+// MARK: Text Field Delegate
 
 extension SearchViewController: UITextFieldDelegate {
     

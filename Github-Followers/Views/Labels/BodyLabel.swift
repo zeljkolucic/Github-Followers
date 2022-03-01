@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GFBodyLabel: UILabel {
+class BodyLabel: UILabel {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,6 +26,8 @@ class GFBodyLabel: UILabel {
         
         configure()
     }
+    
+    // MARK: Configuration
     
     private func configure() {
         textColor = .secondaryLabel

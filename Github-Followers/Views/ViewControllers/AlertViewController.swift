@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GFAlertViewController: UIViewController {
+class AlertViewController: UIViewController {
     
     let containerView: UIView = {
         let view = UIView()
@@ -19,18 +19,18 @@ class GFAlertViewController: UIViewController {
         return view
     }()
     
-    private let titleLabel: GFTitleLabel = {
-        let label = GFTitleLabel(textAlignment: .center, fontSize: 20)
+    private let titleLabel: TitleLabel = {
+        let label = TitleLabel(textAlignment: .center, fontSize: 20)
         return label
     }()
     
-    private let messageLabel: GFBodyLabel = {
-        let label = GFBodyLabel(textAlignment: .center)
+    private let messageLabel: BodyLabel = {
+        let label = BodyLabel(textAlignment: .center)
         return label
     }()
     
-    private let actionButton: GFButton = {
-        let button = GFButton(backgroundColor: .systemPink, title: "Ok")
+    private let actionButton: Button = {
+        let button = Button(backgroundColor: .systemPink, title: "Ok")
         return button
     }()
     
@@ -50,6 +50,8 @@ class GFAlertViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: View Controller Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -60,6 +62,8 @@ class GFAlertViewController: UIViewController {
         configureMessageLabel()
         configureActionButton()
     }
+    
+    // MARK: Configuration
     
     private func configureBackground() {
         view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.75)
@@ -82,6 +86,8 @@ class GFAlertViewController: UIViewController {
     @objc private func dismissViewController() {
         dismiss(animated: true)
     }
+    
+    // MARK: Layout
     
     private func setupLayout() {
         configureBackground()

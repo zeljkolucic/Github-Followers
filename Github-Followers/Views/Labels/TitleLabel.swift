@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GFTitleLabel: UILabel {
+class TitleLabel: UILabel {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,6 +27,8 @@ class GFTitleLabel: UILabel {
         
         configure()
     }
+    
+    // MARK: Configuration
     
     private func configure() {
         textColor = .label // black on light screen, white on dark screen

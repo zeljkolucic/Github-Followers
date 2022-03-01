@@ -8,6 +8,8 @@
 import UIKit
 
 class FavoritesViewController: UIViewController {
+    
+    // MARK: View Controller Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
