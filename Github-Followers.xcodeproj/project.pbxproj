@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E442927A27D004F300B60B6A /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E442927927D004F300B60B6A /* UserInfoViewController.swift */; };
 		E458D93D27CED6CF00463B58 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458D93C27CED6CF00463B58 /* EmptyStateView.swift */; };
 		E4F3895327BCE35B00B2ECEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F3895227BCE35B00B2ECEF /* AppDelegate.swift */; };
 		E4F3895527BCE35B00B2ECEF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F3895427BCE35B00B2ECEF /* SceneDelegate.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E442927927D004F300B60B6A /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		E458D93C27CED6CF00463B58 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		E4F3894F27BCE35B00B2ECEF /* Github-Followers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github-Followers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4F3895227BCE35B00B2ECEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				E4F3896927BCE47900B2ECEF /* FavoritesViewController.swift */,
 				E4F3896B27BCE5DA00B2ECEF /* SearchViewController.swift */,
 				E4F3897127BD57DF00B2ECEF /* FollowersViewController.swift */,
+				E442927927D004F300B60B6A /* UserInfoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				E4F3895527BCE35B00B2ECEF /* SceneDelegate.swift in Sources */,
 				E4F3897027BCF2C000B2ECEF /* TextField.swift in Sources */,
 				E4F3897727BD5D9200B2ECEF /* BodyLabel.swift in Sources */,
+				E442927A27D004F300B60B6A /* UserInfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

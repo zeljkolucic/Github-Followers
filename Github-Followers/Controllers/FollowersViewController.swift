@@ -15,7 +15,6 @@ class FollowersViewController: UIViewController {
     
     private var username: String?
     private var followers: [Follower] = []
-    private var filteredFollowers: [Follower] = []
     private var page: Int = 1
     private var hasMoreFollowers: Bool = true
     
@@ -162,6 +161,13 @@ extension FollowersViewController: UICollectionViewDelegate {
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let follower = dataSource.itemIdentifier(for: indexPath) else { return }
+        let userInfoViewController = UserInfoViewController(username: follower.login)
+        let navigationController = UINavigationController(rootViewController: userInfoViewController)
+        present(navigationController, animated: true)
+    }
+    
 }
 
 // MARK: Search Bar Delegate
@@ -174,7 +180,7 @@ extension FollowersViewController: UISearchResultsUpdating, UISearchBarDelegate 
             return
         }
         
-        filteredFollowers = followers.filter { $0.login.lowercased().contains(filter.lowercased()) }
+        let filteredFollowers = followers.filter { $0.login.lowercased().contains(filter.lowercased()) }
         reloadData(on: filteredFollowers)
     }
     
