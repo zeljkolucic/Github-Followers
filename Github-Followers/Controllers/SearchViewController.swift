@@ -118,6 +118,10 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UITextFieldDelegate {
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.autocapitalizationType = .none
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         didTapGetFollowersButton()
         return true

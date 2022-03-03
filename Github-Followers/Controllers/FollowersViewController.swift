@@ -111,19 +111,21 @@ class FollowersViewController: UIViewController {
             return
         }
         
-        showLoadingView()
+        presentLoadingView()
         NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
             guard let self = self else { return }
             self.dismissLoadingView()
             
             switch result {
             case .success(let followers):
-                if followers.count < 100 { self.hasMoreFollowers = false}
+                if followers.count < 100 {
+                    self.hasMoreFollowers = false
+                }
                 self.followers.append(contentsOf: followers)
                 
                 if self.followers.isEmpty {
-                    let meessage = "This user doesn't have any followers. Go follow them!"
-                    self.showEmptyStateView(with: meessage, view: self.view)
+                    let message = "This user doesn't have any followers. Go follow them!"
+                    self.showEmptyStateView(with: message, view: self.view)
                 }
                 self.reloadData(on: followers)
             case .failure(let error):

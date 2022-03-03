@@ -21,7 +21,7 @@ extension UIViewController {
         }
     }
     
-    func showLoadingView() {
+    func presentLoadingView() {
         containerView = UIView(frame: view.bounds)
         view.addSubview(containerView)
         
