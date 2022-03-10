@@ -18,6 +18,9 @@
 		E458D93D27CED6CF00463B58 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458D93C27CED6CF00463B58 /* EmptyStateView.swift */; };
 		E49D272327D16E3700865B65 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49D272227D16E3700865B65 /* Date+.swift */; };
 		E49D272527D16E8D00865B65 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49D272427D16E8D00865B65 /* String+.swift */; };
+		E4DEE17627DA66E100B7F393 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DEE17527DA66E100B7F393 /* PersistenceManager.swift */; };
+		E4DEE17827DA68A000B7F393 /* PersistenceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DEE17727DA68A000B7F393 /* PersistenceError.swift */; };
+		E4DEE17A27DA958200B7F393 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DEE17927DA958200B7F393 /* FavoriteCell.swift */; };
 		E4F3895327BCE35B00B2ECEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F3895227BCE35B00B2ECEF /* AppDelegate.swift */; };
 		E4F3895527BCE35B00B2ECEF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F3895427BCE35B00B2ECEF /* SceneDelegate.swift */; };
 		E4F3895C27BCE35C00B2ECEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4F3895B27BCE35C00B2ECEF /* Assets.xcassets */; };
@@ -51,6 +54,9 @@
 		E458D93C27CED6CF00463B58 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		E49D272227D16E3700865B65 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		E49D272427D16E8D00865B65 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		E4DEE17527DA66E100B7F393 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		E4DEE17727DA68A000B7F393 /* PersistenceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceError.swift; sourceTree = "<group>"; };
+		E4DEE17927DA958200B7F393 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 		E4F3894F27BCE35B00B2ECEF /* Github-Followers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github-Followers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4F3895227BCE35B00B2ECEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4F3895427BCE35B00B2ECEF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -184,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				E4F3898227BD7EEE00B2ECEF /* NetworkManager.swift */,
+				E4DEE17527DA66E100B7F393 /* PersistenceManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -193,6 +200,7 @@
 			children = (
 				E4F3898527BD896F00B2ECEF /* NetworkError.swift */,
 				E442927F27D0ABC300B60B6A /* Constants.swift */,
+				E4DEE17727DA68A000B7F393 /* PersistenceError.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -239,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				E4F3898727BE4F6F00B2ECEF /* FollowerCollectionViewCell.swift */,
+				E4DEE17927DA958200B7F393 /* FavoriteCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -335,6 +344,7 @@
 				E4F3897227BD57DF00B2ECEF /* FollowersViewController.swift in Sources */,
 				E4F3897927BD5E5F00B2ECEF /* AlertViewController.swift in Sources */,
 				E4F3898827BE4F6F00B2ECEF /* FollowerCollectionViewCell.swift in Sources */,
+				E4DEE17A27DA958200B7F393 /* FavoriteCell.swift in Sources */,
 				E4F3898627BD896F00B2ECEF /* NetworkError.swift in Sources */,
 				E4F3896A27BCE47900B2ECEF /* FavoritesViewController.swift in Sources */,
 				E4F3897E27BD7AA700B2ECEF /* Follower.swift in Sources */,
@@ -343,8 +353,10 @@
 				E4F3898327BD7EEE00B2ECEF /* NetworkManager.swift in Sources */,
 				E442928427D1607300B60B6A /* ItemInfoViewController.swift in Sources */,
 				E4F3895527BCE35B00B2ECEF /* SceneDelegate.swift in Sources */,
+				E4DEE17627DA66E100B7F393 /* PersistenceManager.swift in Sources */,
 				E4F3897027BCF2C000B2ECEF /* TextField.swift in Sources */,
 				E4F3897727BD5D9200B2ECEF /* BodyLabel.swift in Sources */,
+				E4DEE17827DA68A000B7F393 /* PersistenceError.swift in Sources */,
 				E442927C27D0A46300B60B6A /* SecondaryTitleLabel.swift in Sources */,
 				E442927A27D004F300B60B6A /* UserInfoViewController.swift in Sources */,
 				E49D272527D16E8D00865B65 /* String+.swift in Sources */,

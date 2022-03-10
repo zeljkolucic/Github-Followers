@@ -108,7 +108,7 @@ class SearchViewController: UIViewController {
             return
         }
         
-        let followersViewController = FollowersViewController(username: usernameTextField.text)
+        let followersViewController = FollowersViewController(username: usernameTextField.text!)
         navigationController?.pushViewController(followersViewController, animated: true)
     }
 

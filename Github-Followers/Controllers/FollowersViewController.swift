@@ -13,7 +13,7 @@ class FollowersViewController: UIViewController {
         case main
     }
     
-    private var username: String?
+    private var username: String
     private var followers: [Follower] = []
     private var page: Int = 1
     private var hasMoreFollowers: Bool = true
@@ -21,10 +21,10 @@ class FollowersViewController: UIViewController {
     private var collectionView: UICollectionView!
     private var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
     
-    init(username: String?) {
-        super.init(nibName: nil, bundle: nil)
-        
+    init(username: String) {
         self.username = username
+        
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -51,6 +51,9 @@ class FollowersViewController: UIViewController {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = username
+        
+        let addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAddButton))
+        navigationItem.rightBarButtonItem = addBarButton
     }
     
     private func setupLayout() {
@@ -106,11 +109,6 @@ class FollowersViewController: UIViewController {
     // MARK: Network
     
     private func getFollowers(page: Int) {
-        guard let username = username else {
-            presentAlertOnMainThread(title: "Error", message: "Username is empty.", buttonTitle: "Ok")
-            return
-        }
-        
         presentLoadingView()
         NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
             guard let self = self else { return }
@@ -143,6 +141,32 @@ class FollowersViewController: UIViewController {
         searchController.searchBar.placeholder = "Search for a username"
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
+    }
+    
+    // MARK: Actions
+    
+    @objc private func didTapAddButton() {
+        presentLoadingView()
+        
+        NetworkManager.shared.getUserInfo(for: username) { result in
+            self.dismissLoadingView()
+            
+            switch result {
+            case .success(let user):
+                let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
+                PersistenceManager.update(with: favorite, actionType: .add) { [weak self] error in
+                    guard let self = self else { return }
+                    
+                    if let error = error {
+                        self.presentAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
+                    }
+                    
+                    self.presentAlertOnMainThread(title: "Success!", message: "You have succesfully added user to favorites.", buttonTitle: "Ok")
+                }
+            case .failure(let error):
+                self.presentAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
+            }
+        }
     }
 
 }
