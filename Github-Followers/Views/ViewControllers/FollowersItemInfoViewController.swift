@@ -7,7 +7,15 @@
 
 import UIKit
 
+protocol FollowersDelegate: AnyObject {
+    
+    func didTapGetFollowersButton()
+    
+}
+
 class FollowersItemInfoViewController: ItemInfoViewController {
+    
+    weak var delegate: FollowersDelegate?
     
     // MARK: View Controller Lifecycle
     
@@ -24,4 +32,11 @@ class FollowersItemInfoViewController: ItemInfoViewController {
         itemInfoViewRight.configure(with: .following, count: user.following)
         button.configure(with: .systemGreen, title: "Get Followers")
     }
+    
+    // MARK: Actions
+    
+    override func didTapButton() {
+        delegate?.didTapGetFollowersButton()
+    }
+    
 }

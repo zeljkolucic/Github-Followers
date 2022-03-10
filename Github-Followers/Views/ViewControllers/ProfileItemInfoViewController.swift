@@ -7,7 +7,15 @@
 
 import UIKit
 
+protocol ProfileDelegate: AnyObject {
+    
+    func didTapGithubProfileButton()
+    
+}
+
 class ProfileItemInfoViewController: ItemInfoViewController {
+    
+    weak var delegate: ProfileDelegate?
     
     // MARK: View Controller Lifecycle
     
@@ -23,6 +31,12 @@ class ProfileItemInfoViewController: ItemInfoViewController {
         itemInfoViewLeft.configure(with: .repos, count: user.publicRepos)
         itemInfoViewRight.configure(with: .gists, count: user.publicGists)
         button.configure(with: .systemPurple, title: "Github Profile")
+    }
+    
+    // MARK: Actions
+    
+    override func didTapButton() {
+        delegate?.didTapGithubProfileButton()
     }
     
 }

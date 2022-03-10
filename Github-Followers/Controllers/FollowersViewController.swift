@@ -165,7 +165,7 @@ extension FollowersViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let follower = dataSource.itemIdentifier(for: indexPath) else { return }
-        let userInfoViewController = UserInfoViewController(username: follower.login)
+        let userInfoViewController = UserInfoViewController(username: follower.login, delegate: self)
         let navigationController = UINavigationController(rootViewController: userInfoViewController)
         present(navigationController, animated: true)
     }
@@ -188,6 +188,23 @@ extension FollowersViewController: UISearchResultsUpdating, UISearchBarDelegate 
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         reloadData(on: followers)
+    }
+    
+}
+
+// MARK: Followers List Delegate
+
+extension FollowersViewController: FollowersListDelegate {
+    
+    func didRequestFollowers(for username: String) {
+        self.username = username
+        title = username
+        
+        page = 1
+        followers.removeAll()
+        
+        collectionView.scrollsToTop = true
+        getFollowers(page: page)
     }
     
 }

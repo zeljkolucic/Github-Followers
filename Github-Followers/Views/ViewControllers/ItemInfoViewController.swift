@@ -55,6 +55,8 @@ class ItemInfoViewController: UIViewController {
         configureViewController()
         setupLayout()
         setConstraints()
+        
+        configureButtonActions()
     }
     
     // MARK: Layout
@@ -81,6 +83,18 @@ class ItemInfoViewController: UIViewController {
         button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
         button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         button.heightAnchor.constraint(equalToConstant: 44).isActive = true
+    }
+    
+    // MARK: Configuration
+    
+    private func configureButtonActions() {
+        button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+    }
+    
+    // MARK: Actions
+    
+    @objc func didTapButton() {
+        
     }
     
 }

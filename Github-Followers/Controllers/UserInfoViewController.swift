@@ -6,6 +6,13 @@
 //
 
 import UIKit
+import SafariServices
+
+protocol FollowersListDelegate: AnyObject {
+    
+    func didRequestFollowers(for username: String)
+    
+}
 
 class UserInfoViewController: UIViewController {
     
@@ -33,9 +40,13 @@ class UserInfoViewController: UIViewController {
     }()
     
     private var username: String
+    private var user: User?
     
-    init(username: String) {
+    private weak var delegate: FollowersListDelegate?
+    
+    init(username: String, delegate: FollowersListDelegate) {
         self.username = username
+        self.delegate = delegate
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -113,13 +124,17 @@ class UserInfoViewController: UIViewController {
             switch result {
             case .success(let user):
                 DispatchQueue.main.async {
+                    self.user = user
+                    
                     let userInfoHeaderViewController = UserInfoHeaderViewController(user: user)
                     self.addChildViewController(child: userInfoHeaderViewController, to: self.headerView)
                     
                     let profileItemInfoViewController = ProfileItemInfoViewController(user: user)
+                    profileItemInfoViewController.delegate = self
                     self.addChildViewController(child: profileItemInfoViewController, to: self.profileView)
                     
                     let followersItemInfoViewController = FollowersItemInfoViewController(user: user)
+                    followersItemInfoViewController.delegate = self
                     self.addChildViewController(child: followersItemInfoViewController, to: self.followersView)
                     
                     let date = user.createdAt.convertToDisplayFormat()
@@ -130,7 +145,38 @@ class UserInfoViewController: UIViewController {
             }
         }
     }
-
     
+}
+
+// MARK: Followers Delegate
+
+extension UserInfoViewController: FollowersDelegate {
+    
+    func didTapGetFollowersButton() {
+        guard let user = user, user.followers != 0 else {
+            presentAlertOnMainThread(title: "No followers", message: "User has no followers.", buttonTitle: "Ok")
+            return
+        }
+        
+        delegate?.didRequestFollowers(for: username)
+        dismiss(animated: true)
+    }
+    
+}
+
+// MARK: Profile Delegate
+
+extension UserInfoViewController: ProfileDelegate {
+    
+    func didTapGithubProfileButton() {
+        guard let user = user, let url = URL(string: user.htmlUrl) else {
+            presentAlertOnMainThread(title: "Invalid URL", message: "The url attached to this user is invalid.", buttonTitle: "Ok")
+            return
+        }
+        
+        let safariViewController = SFSafariViewController(url: url)
+        safariViewController.preferredControlTintColor = .systemGreen
+        present(safariViewController, animated: true)
+    }
     
 }
