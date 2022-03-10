@@ -19,64 +19,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let tabBarController = createTabBarController()
+        let tabBarController = TabBarController()
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
-    }
-    
-    fileprivate func createTabBarController() -> UITabBarController {
-        let tabBarController = UITabBarController()
-        UITabBar.appearance().tintColor = .systemGreen
-        
-        configureTabBarAppearance()
-        configureNavigationBarAppearance()
-        
-        let searchNavigationController = createSearchNavigationController()
-        let favoritesNavigationController = createFavoritesNavigationController()
-        tabBarController.viewControllers = [searchNavigationController, favoritesNavigationController]
-        
-        return tabBarController
-    }
-    
-    fileprivate func configureTabBarAppearance() {
-        if #available(iOS 15, *) {
-            let appearance = UITabBarAppearance()
-            appearance.configureWithOpaqueBackground()
-            UITabBar.appearance().standardAppearance = appearance
-            UITabBar.appearance().scrollEdgeAppearance = appearance
-        }
-    }
-    
-    fileprivate func configureNavigationBarAppearance() {
-        UINavigationBar.appearance().tintColor = .systemGreen
-        
-        if #available(iOS 15, *) {
-            let appearance = UINavigationBarAppearance()
-            appearance.configureWithOpaqueBackground()
-            UINavigationBar.appearance().standardAppearance = appearance
-            UINavigationBar.appearance().scrollEdgeAppearance = appearance
-        }
-    }
-    
-    fileprivate func createSearchNavigationController() -> UINavigationController {
-        let searchViewController = SearchViewController()
-        searchViewController.title = "Search"
-        searchViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
-        let searchNavigationController = UINavigationController(rootViewController: searchViewController)
-        
-        return searchNavigationController
-    }
-    
-    fileprivate func createFavoritesNavigationController() -> UINavigationController {
-        let favoritesViewController = FavoritesViewController()
-        favoritesViewController.title = "Favorites"
-        favoritesViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
-        let favoritesNavigationController = UINavigationController(rootViewController: favoritesViewController)
-        
-        return favoritesNavigationController
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

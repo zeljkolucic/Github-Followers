@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E40A21AF27DAA2A50021F89B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A21AE27DAA2A50021F89B /* TabBarController.swift */; };
 		E442927A27D004F300B60B6A /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E442927927D004F300B60B6A /* UserInfoViewController.swift */; };
 		E442927C27D0A46300B60B6A /* SecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E442927B27D0A46300B60B6A /* SecondaryTitleLabel.swift */; };
 		E442927E27D0A57500B60B6A /* UserInfoHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E442927D27D0A57500B60B6A /* UserInfoHeaderViewController.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E40A21AE27DAA2A50021F89B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		E442927927D004F300B60B6A /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		E442927B27D0A46300B60B6A /* SecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryTitleLabel.swift; sourceTree = "<group>"; };
 		E442927D27D0A57500B60B6A /* UserInfoHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoHeaderViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				E4F3896B27BCE5DA00B2ECEF /* SearchViewController.swift */,
 				E4F3897127BD57DF00B2ECEF /* FollowersViewController.swift */,
 				E442927927D004F300B60B6A /* UserInfoViewController.swift */,
+				E40A21AE27DAA2A50021F89B /* TabBarController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E458D93D27CED6CF00463B58 /* EmptyStateView.swift in Sources */,
+				E40A21AF27DAA2A50021F89B /* TabBarController.swift in Sources */,
 				E442928027D0ABC300B60B6A /* Constants.swift in Sources */,
 				E4F3898027BD7B6800B2ECEF /* User.swift in Sources */,
 				E442928627D163A900B60B6A /* ProfileItemInfoViewController.swift in Sources */,
