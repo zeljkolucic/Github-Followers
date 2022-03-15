@@ -41,11 +41,9 @@ class DataLoadingViewController: UIViewController {
     }
     
     func showEmptyStateView(with message: String, view: UIView) {
-        DispatchQueue.main.async {
-            let emptyStateView = EmptyStateView(message: message)
-            emptyStateView.frame = view.bounds
-            view.addSubview(emptyStateView)
-        }
+        let emptyStateView = EmptyStateView(message: message)
+        emptyStateView.frame = view.bounds
+        view.addSubview(emptyStateView)
     }
     
 }

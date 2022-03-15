@@ -33,6 +33,8 @@ class AlertViewController: UIViewController {
     private var message: String?
     private var buttonTitle: String?
     
+    // MARK: Initialization
+    
     init(alertTitle: String, message: String, buttonTitle: String) {
         super.init(nibName: nil, bundle: nil)
         
@@ -60,7 +62,7 @@ class AlertViewController: UIViewController {
     
     // MARK: Configuration
     
-    private func configureBackground() {
+    private func configureViewController() {
         view.backgroundColor = .black.withAlphaComponent(0.75)
     }
     
@@ -85,7 +87,7 @@ class AlertViewController: UIViewController {
     // MARK: Layout
     
     private func setupLayout() {
-        configureBackground()
+        configureViewController()
         
         view.addSubview(containerView)
         containerView.addSubview(titleLabel)

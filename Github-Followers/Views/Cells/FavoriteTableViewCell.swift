@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavoriteCell: UITableViewCell {
+class FavoriteTableViewCell: UITableViewCell {
     
     static let identifier = "FavoriteCell"
     
@@ -21,10 +21,12 @@ class FavoriteCell: UITableViewCell {
         return label
     }()
     
+    // MARK: Initialization
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        setupLayout()
+        addSubviews()
         setConstraints()
         configure()
     }
@@ -33,7 +35,9 @@ class FavoriteCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupLayout() {
+    // MARK: Layout
+    
+    private func addSubviews() {
         addSubview(avatarImageView)
         addSubview(usernameLabel)
     }

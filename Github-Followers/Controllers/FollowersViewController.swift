@@ -39,7 +39,7 @@ class FollowersViewController: DataLoadingViewController {
         configureViewController()
         configureCollectionView()
         configureSearchController()
-        setupLayout()
+        addSubviews()
         
         configureDataSource()
         getFollowers(page: page)
@@ -56,7 +56,7 @@ class FollowersViewController: DataLoadingViewController {
         navigationItem.rightBarButtonItem = addBarButton
     }
     
-    private func setupLayout() {
+    private func addSubviews() {
         view.addSubview(collectionView)
     }
     
@@ -123,7 +123,9 @@ class FollowersViewController: DataLoadingViewController {
                 
                 if self.followers.isEmpty {
                     let message = "This user doesn't have any followers. Go follow them!"
-                    self.showEmptyStateView(with: message, view: self.view)
+                    DispatchQueue.main.async {
+                        self.showEmptyStateView(with: message, view: self.view)
+                    }
                 }
                 self.reloadData(on: followers)
             case .failure(let error):

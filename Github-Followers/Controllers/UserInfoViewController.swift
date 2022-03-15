@@ -44,6 +44,8 @@ class UserInfoViewController: UIViewController {
     
     private weak var delegate: FollowersListDelegate?
     
+    // MARK: Initialization
+    
     init(username: String, delegate: FollowersListDelegate) {
         self.username = username
         self.delegate = delegate
@@ -61,7 +63,7 @@ class UserInfoViewController: UIViewController {
         super.viewDidLoad()
         
         configureViewController()
-        setupLayout()
+        addSubviews()
         setConstraints()
         
         getUser()
@@ -75,7 +77,7 @@ class UserInfoViewController: UIViewController {
         navigationItem.rightBarButtonItem = doneBarButton
     }
     
-    private func setupLayout() {
+    private func addSubviews() {
         view.addSubview(headerView)
         view.addSubview(profileView)
         view.addSubview(followersView)

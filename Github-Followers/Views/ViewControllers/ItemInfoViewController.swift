@@ -37,6 +37,8 @@ class ItemInfoViewController: UIViewController {
     
     var user: User
     
+    // MARK: Initialization
+    
     init(user: User) {
         self.user = user
         
@@ -53,7 +55,7 @@ class ItemInfoViewController: UIViewController {
         super.viewDidLoad()
         
         configureViewController()
-        setupLayout()
+        addSubviews()
         setConstraints()
         
         configureButtonActions()
@@ -66,7 +68,7 @@ class ItemInfoViewController: UIViewController {
         view.backgroundColor = .secondarySystemBackground
     }
     
-    private func setupLayout() {
+    private func addSubviews() {
         view.addSubview(stackView)
         stackView.addArrangedSubview(itemInfoViewLeft)
         stackView.addArrangedSubview(itemInfoViewRight)

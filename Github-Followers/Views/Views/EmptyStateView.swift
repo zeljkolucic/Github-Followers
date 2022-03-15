@@ -28,7 +28,7 @@ class EmptyStateView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        setupLayout()
+        addSubviews()
         setConstraints()
     }
     
@@ -42,9 +42,9 @@ class EmptyStateView: UIView {
         messageLabel.text = message
     }
     
-    // MARK: Configuration
+    // MARK: Layout
     
-    private func setupLayout() {
+    private func addSubviews() {
         addSubview(messageLabel)
         addSubview(logoImageView)
     }

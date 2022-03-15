@@ -21,10 +21,12 @@ class FollowerCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    // MARK: Initialization
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        setupLayout()
+        addSubviews()
         setConstraints()
     }
     
@@ -34,7 +36,7 @@ class FollowerCollectionViewCell: UICollectionViewCell {
     
     // MARK: Layout
     
-    private func setupLayout() {
+    private func addSubviews() {
         contentView.addSubview(avatarImageView)
         contentView.addSubview(usernameLabel)
     }

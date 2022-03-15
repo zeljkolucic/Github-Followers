@@ -13,6 +13,8 @@ class AvatarImageView: UIImageView {
         let image = Images.placeholder
         return image!
     }()
+    
+    // MARK: Initialization
 
     override init(frame: CGRect) {
         super.init(frame: frame)

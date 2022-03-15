@@ -45,6 +45,8 @@ class UserInfoHeaderViewController: UIViewController {
     
     private var user: User
     
+    // MARK: Initialization
+    
     init(user: User) {
         self.user = user
         
@@ -60,14 +62,14 @@ class UserInfoHeaderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupLayout()
+        addSubviews()
         setConstraints()
         configureLayoutElements()
     }
     
     // MARK: Layout
     
-    private func setupLayout() {
+    private func addSubviews() {
         view.addSubview(avatarImageView)
         view.addSubview(usernameLabel)
         view.addSubview(nameLabel)
@@ -107,8 +109,6 @@ class UserInfoHeaderViewController: UIViewController {
         bioLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         bioLabel.heightAnchor.constraint(equalToConstant: 90).isActive = true
     }
-    
-    // MARK: Configuration
     
     private func configureLayoutElements() {
         NetworkManager.shared.downloadImage(from: user.avatarUrl) { image in

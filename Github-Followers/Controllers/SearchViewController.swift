@@ -36,7 +36,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
 
         configureViewController()
-        setupLayout()
+        addSubviews()
         setConstraints()
         
         createDismissKeyboardTapGesture()
@@ -63,7 +63,7 @@ class SearchViewController: UIViewController {
         view.backgroundColor = .systemBackground
     }
     
-    private func setupLayout() {
+    private func addSubviews() {
         view.addSubview(logoImageView)
         view.addSubview(usernameTextField)
         view.addSubview(getFollowersButton)

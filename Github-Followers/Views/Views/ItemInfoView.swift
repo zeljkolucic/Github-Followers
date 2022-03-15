@@ -37,7 +37,7 @@ class ItemInfoView: UIView {
     init() {
         super.init(frame: .zero)
         
-        setupLayout()
+        addSubviews()
         setConstraints()
     }
     
@@ -47,7 +47,7 @@ class ItemInfoView: UIView {
     
     // MARK: Layout
     
-    private func setupLayout() {
+    private func addSubviews() {
         addSubview(symbolImageView)
         addSubview(titleLabel)
         addSubview(countLabel)
@@ -69,6 +69,8 @@ class ItemInfoView: UIView {
         countLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         countLabel.heightAnchor.constraint(equalToConstant: 18).isActive = true
     }
+    
+    // MARK: Configuration
     
     func configure(with type: ItemInfoType, count: Int) {
         switch type {

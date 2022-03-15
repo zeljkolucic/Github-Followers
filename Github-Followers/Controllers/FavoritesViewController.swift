@@ -11,7 +11,7 @@ class FavoritesViewController: DataLoadingViewController {
     
     private let tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(FavoriteCell.self, forCellReuseIdentifier: FavoriteCell.identifier)
+        tableView.register(FavoriteTableViewCell.self, forCellReuseIdentifier: FavoriteTableViewCell.identifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -24,7 +24,7 @@ class FavoritesViewController: DataLoadingViewController {
         super.viewDidLoad()
 
         configureViewController()
-        setupLayout()
+        addSubviews()
         setConstraints()
         configureTableView()
     }
@@ -43,7 +43,7 @@ class FavoritesViewController: DataLoadingViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    private func setupLayout() {
+    private func addSubviews() {
         view.addSubview(tableView)
     }
     
@@ -63,7 +63,9 @@ class FavoritesViewController: DataLoadingViewController {
             switch result {
             case .success(let favorites):
                 if favorites.isEmpty {
-                    self.showEmptyStateView(with: "There are no favorites.", view: self.view)
+                    DispatchQueue.main.async {
+                        self.showEmptyStateView(with: "There are no favorites.", view: self.view)
+                    }
                 } else {
                     self.favorites = favorites
                     DispatchQueue.main.async {
@@ -93,7 +95,7 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: FavoriteCell.identifier, for: indexPath) as? FavoriteCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: FavoriteTableViewCell.identifier, for: indexPath) as? FavoriteTableViewCell else {
             return UITableViewCell()
         }
         
@@ -121,15 +123,17 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
         guard editingStyle == .delete else { return }
         
         let favorite = favorites[indexPath.row]
-        favorites.remove(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: .left)
         
         PersistenceManager.update(with: favorite, actionType: .remove) { [weak self] error in
             guard let self = self else { return }
             
             if let error = error {
                 self.presentAlertOnMainThread(title: "Something went wrong", message: error.localizedDescription, buttonTitle: "Ok")
+                return
             }
+            
+            self.favorites.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .left)
         }
     }
     
