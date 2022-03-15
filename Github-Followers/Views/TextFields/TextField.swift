@@ -38,6 +38,7 @@ class TextField: UITextField {
         autocorrectionType = .no // turn off autocorrection for input
         keyboardType = .default // configuration of keyboard
         returnKeyType = .go
+        clearButtonMode = .whileEditing
         placeholder = "Enter a username"
     }
     

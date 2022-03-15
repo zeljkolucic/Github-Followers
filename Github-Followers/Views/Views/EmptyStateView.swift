@@ -18,10 +18,12 @@ class EmptyStateView: UIView {
     
     private let logoImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "empty-state-logo")
+        imageView.image = Images.emptyStateLogo
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
+    
+    // MARK: Initialization
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,12 +36,10 @@ class EmptyStateView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(message: String) {
-        super.init(frame: .zero)
+    convenience init(message: String) {
+        self.init(frame: .zero)
         
         messageLabel.text = message
-        setupLayout()
-        setConstraints()
     }
     
     // MARK: Configuration

@@ -8,6 +8,8 @@
 import UIKit
 
 class BodyLabel: UILabel {
+    
+    // MARK: Initialization
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -19,12 +21,10 @@ class BodyLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(textAlignment: NSTextAlignment) {
-        super.init(frame: .zero)
+    convenience init(textAlignment: NSTextAlignment) {
+        self.init(frame: .zero)
         
         self.textAlignment = textAlignment
-        
-        configure()
     }
     
     // MARK: Configuration

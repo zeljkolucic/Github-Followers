@@ -10,7 +10,7 @@ import UIKit
 class AvatarImageView: UIImageView {
     
     private let placeholderImage: UIImage = {
-        let image = UIImage(named: "avatar-placeholder")
+        let image = Images.placeholder
         return image!
     }()
 

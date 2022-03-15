@@ -26,7 +26,7 @@ class UserInfoHeaderViewController: UIViewController {
     
     private let locationImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: SFSymbols.location)
+        imageView.image = SFSymbols.location
         imageView.tintColor = .secondaryLabel
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -105,7 +105,7 @@ class UserInfoHeaderViewController: UIViewController {
         bioLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 12).isActive = true
         bioLabel.leadingAnchor.constraint(equalTo: avatarImageView.leadingAnchor).isActive = true
         bioLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        bioLabel.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        bioLabel.heightAnchor.constraint(equalToConstant: 90).isActive = true
     }
     
     // MARK: Configuration

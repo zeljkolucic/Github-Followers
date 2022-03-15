@@ -7,8 +7,6 @@
 
 import UIKit
 
-fileprivate var containerView: UIView!
-
 extension UIViewController {
     
     func presentAlertOnMainThread(title: String, message: String, buttonTitle: String) {
@@ -18,43 +16,6 @@ extension UIViewController {
             alertViewController.modalPresentationStyle = .overFullScreen
             alertViewController.modalTransitionStyle = .crossDissolve
             self.present(alertViewController, animated: true)
-        }
-    }
-    
-    func presentLoadingView() {
-        containerView = UIView(frame: view.bounds)
-        view.addSubview(containerView)
-        
-        containerView.backgroundColor = .systemBackground
-        containerView.alpha = 0
-        
-        UIView.animate(withDuration: 0.25) {
-            containerView.alpha = 0.8
-        }
-        
-        let activityIndicator = UIActivityIndicatorView(style: .large)
-        containerView.addSubview(activityIndicator)
-        
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        
-        activityIndicator.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
-        activityIndicator.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
-        
-        activityIndicator.startAnimating()
-    }
-    
-    func dismissLoadingView() {
-        DispatchQueue.main.async {
-            containerView.removeFromSuperview()
-            containerView = nil
-        }
-    }
-    
-    func showEmptyStateView(with message: String, view: UIView) {
-        DispatchQueue.main.async {
-            let emptyStateView = EmptyStateView(message: message)
-            emptyStateView.frame = view.bounds
-            view.addSubview(emptyStateView)
         }
     }
     

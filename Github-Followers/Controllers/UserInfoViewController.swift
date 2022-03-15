@@ -137,7 +137,7 @@ class UserInfoViewController: UIViewController {
                     followersItemInfoViewController.delegate = self
                     self.addChildViewController(child: followersItemInfoViewController, to: self.followersView)
                     
-                    let date = user.createdAt.convertToDisplayFormat()
+                    let date = user.createdAt.convertToMonthYearFormat()
                     self.dateLabel.text = "On GitHub since \(date)"
                 }
             case .failure(let error):

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FollowersViewController: UIViewController {
+class FollowersViewController: DataLoadingViewController {
     
     enum Section {
         case main

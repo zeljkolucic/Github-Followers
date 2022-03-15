@@ -9,13 +9,8 @@ import UIKit
 
 class AlertViewController: UIViewController {
     
-    let containerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .systemBackground
-        view.layer.cornerRadius = 16
-        view.layer.borderWidth = 2
-        view.layer.borderColor = UIColor.white.cgColor
-        view.translatesAutoresizingMaskIntoConstraints = false
+    let containerView: AlertContainerView = {
+        let view = AlertContainerView()
         return view
     }()
     
@@ -66,7 +61,7 @@ class AlertViewController: UIViewController {
     // MARK: Configuration
     
     private func configureBackground() {
-        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.75)
+        view.backgroundColor = .black.withAlphaComponent(0.75)
     }
     
     private func configureTitleLabel() {

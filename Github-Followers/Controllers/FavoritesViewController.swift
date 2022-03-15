@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavoritesViewController: UIViewController {
+class FavoritesViewController: DataLoadingViewController {
     
     private let tableView: UITableView = {
         let tableView = UITableView()

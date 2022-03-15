@@ -12,7 +12,7 @@ class SearchViewController: UIViewController {
     private let logoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "gh-logo")
+        imageView.image = Images.githubLogo
         return imageView
     }()
     
@@ -47,6 +47,7 @@ class SearchViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        usernameTextField.text = ""
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
@@ -88,7 +89,7 @@ class SearchViewController: UIViewController {
     // MARK: Configuration
     
     private func createDismissKeyboardTapGesture() {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:)))
         view.addGestureRecognizer(tapGestureRecognizer)
     }
     
@@ -107,6 +108,8 @@ class SearchViewController: UIViewController {
             presentAlertOnMainThread(title: "Empty Username", message: "Please enter a username. We need to know who to look for.", buttonTitle: "Ok")
             return
         }
+        
+        usernameTextField.resignFirstResponder()
         
         let followersViewController = FollowersViewController(username: usernameTextField.text!)
         navigationController?.pushViewController(followersViewController, animated: true)
