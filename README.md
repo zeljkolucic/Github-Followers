@@ -23,7 +23,7 @@ Pressing any of the collection view cells modally presents another view controll
 Selecting the "GitHub Profile" button will present SafariViewController and the user's profile. And for the "Get Followers" button, it has the same effect
 as it does on the Home Screen, it will search for followers of the currently presented user.
 
-<img src="Screenshots/UserInfoScreenScreen.png" alt="drawing" width="250" height="541"/>
+<img src="Screenshots/UserInfoScreen.png" alt="drawing" width="250" height="541"/>
 <img src="Screenshots/SafariScreen.png" alt="drawing" width="250" height="541"/>
 
 Sliding the table view cell to the left will remove the user from favorites.
