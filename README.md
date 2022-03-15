@@ -8,7 +8,7 @@ The main functionality of this app is to search for GitHub users, show basic inf
 The first screen to show up is the search screen, where you can type in the GitHub user who you want to search for, and by pressing the "Get Followers" button
 the HTTP request to the GitHub API is being sent.
 
-![SearchScreen](Screenshots/SearchScreen.png =200x433)
+<img src="Screenshots/SearchScreen.png" alt="drawing" width="200" height="433"/>
 
 Having fetched the data from GitHub API, it is being decoded using JSONDecoder and the decoded data is being shown in the form of followers. This screen is 
 implemented using pagination, which means that a maximum of 100 followers are being fetched by a single HTTP request, and scrolling down to the end, a new
